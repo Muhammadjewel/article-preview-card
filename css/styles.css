@@ -158,16 +158,10 @@ select:-webkit-autofill:focus {
   list-style: none;
 }
 
-.share-widget__socials-item {
-}
-
 .share-widget__socials-link {
   text-decoration: none;
 }
 
-.share-widget__socials-icon {
-
-}
 
 
 /* CARD */
@@ -233,10 +227,6 @@ select:-webkit-autofill:focus {
 
 .card__date {
   color: #9daec2;
-}
-
-.card__share-wrapper {
-
 }
 
 
