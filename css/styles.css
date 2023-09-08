@@ -8,7 +8,7 @@
 body {
   display: flex;
   flex-direction: column;
-  padding: 0;
+  padding: 24px;
   margin: 0;
   font-family: "Manrope", "Arial", sans-serif;
   font-size: 0.8125rem;
@@ -82,10 +82,12 @@ select:-webkit-autofill:focus {
 /* SHARE WIDGET */
 .share-widget {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .share-widget__toggler {
+  position: relative;
+  z-index: 2;
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -96,6 +98,7 @@ select:-webkit-autofill:focus {
   color: #6E8098;
   text-align: center;
   cursor: pointer;
+  transition: transform 0.4s ease;
 }
 
 .share-widget--open .share-widget__toggler {
@@ -118,6 +121,7 @@ select:-webkit-autofill:focus {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  align-items: center;
   min-width: 248px;
   padding: 18px 36px;
   border-radius: 10px;
@@ -244,4 +248,90 @@ only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
+}
+
+/* 992px */
+@media only screen and (max-width: 62em) {
+  .share-widget--open {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 16px 32px;
+    border-radius: 0 0 10px 0;
+    background-color: #48556a;
+  }
+
+  .share-widget__toggler {
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  .share-widget--open .share-widget__inner {
+    position: static;
+    width: 100%;
+    min-width: auto;
+    padding: 0;
+    border-radius: 0;
+    transform: none;
+    filter: none;
+  }
+
+  .share-widget--open .share-widget__inner::after {
+    display: none;
+  }
+
+  .card__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 32px 20px;
+  }
+
+  .card__meta {
+    margin-top: auto;
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 40em) {
+  .share-widget--open {
+    border-radius: 0 0 10px 10px;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .card__img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card__heading {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .card__text {
+    margin-bottom: 32px;
+  }
+}
+
+/* 360px */
+@media only screen and (max-width: 22.5em) {
+  .share-widget--open .share-widget__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .share-widget__label {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
 }
